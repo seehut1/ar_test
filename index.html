@@ -45,5 +45,24 @@
 
     </a-entity>
 </a-scene>
+<script>
+    // Get the video element
+    const video = document.querySelector("#vid");
+
+    // Get the target element (the book cover)
+    const target = document.querySelector('[mindar-image-target]');
+
+    // When the camera sees the book
+    target.addEventListener("targetFound", event => {
+        console.log("Book found - playing video");
+        video.play();
+    });
+
+    // When the camera loses the book
+    target.addEventListener("targetLost", event => {
+        console.log("Book lost - pausing video");
+        video.pause();
+    });
+</script>
 </body>
 </html>
